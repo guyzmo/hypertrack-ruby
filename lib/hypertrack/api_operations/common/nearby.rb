@@ -3,7 +3,7 @@ module HyperTrack
     module Common
       module Nearby
 
-        def nearby(params, required_params=[:action_id])
+        def nearby(params, required_params=[])
           if HyperTrack::ParamsValidator.valid_args?(params, required_params, get_class_name::VALID_ATTRIBUTE_VALUES)
             api_path = "#{get_class_name::API_BASE_PATH}" + "nearby/"
             response = HyperTrack::ApiClient.fetch(api_path, params)

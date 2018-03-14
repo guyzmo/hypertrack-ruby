@@ -7,12 +7,12 @@ A RubyGem for [HyperTrack](https://www.hypertrack.io/)'s [Backend API](https://d
 
 Add this line to your application's Gemfile:
 ```ruby
-gem 'hypertrack', '~> 0.1.4'
+gem 'hypertrack', '~> 0.1.5'
 ```
 
 And then run `bundle install` on command line.
 
-Or install it yourself as: `gem install hypertrack -v 0.1.4`
+Or install it yourself as: `gem install hypertrack -v 0.1.5`
 
 ## Initialization:
 ```ruby
@@ -52,14 +52,19 @@ HyperTrack.secret_key = "<YOUR_SECRET_KEY>"
 
   - [Location-based Assignment - Find Nearby Users](https://docs.hypertrack.com/api/entities/user.html#list-nearby-users)
     ```ruby
+    # Near an action's expected place
     users = HyperTrack::User.nearby({action_id: "0a874ed1-a4f4-4786-8319-a5d75bc9948b"})
+
+    # Near a specified location in (longitude,latitude) format
+    users = HyperTrack::User.nearby({location: "77.626479,12.936736", radius: 1000})
     ```
 
 - [Action](https://docs.hypertrack.com/v3/api/entities/action.html)
   - [Create](https://docs.hypertrack.com/v3/api/entities/action.html#create-an-action)
 
     ```ruby
-    HyperTrack::Action.create(type: 'pickup')
+    place = {location: {type: "Point", coordinates: [77.63, 12.929]}} # GeoJSON format
+    HyperTrack::Action.create(type: 'pickup', expected_place: place)
     ```
     
   - [Retrieve](https://docs.hypertrack.com/v3/api/entities/action.html#retrieve-an-action)
