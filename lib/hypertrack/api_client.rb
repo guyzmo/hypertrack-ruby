@@ -65,14 +65,20 @@ module HyperTrack
         request_object
       end
 
-      # To-Do: Add a timeout
       def make_request(api_uri, request_object)
-        conn = Net::HTTP.new api_uri.host, api_uri.port
-        conn.use_ssl = api_uri.scheme == 'https'
-        conn.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        conn.cert_store = OpenSSL::X509::Store.new
-        conn.cert_store.set_default_paths
-        parse_response(conn.request(request_object))
+        parse_response(
+          Net::HTTP.start(
+              api_uri.host,
+              api_uri.port,
+              :read_timeout => ENV['NET_TIMEOUT'] || 5,
+              :use_ssl => api_uri.scheme == 'https',
+              :verify_mode => OpenSSL::SSL::VERIFY_PEER
+            ) { |conn|
+            conn.cert_store = OpenSSL::X509::Store.new
+            conn.cert_store.set_default_paths
+            conn.request(request_object)
+          }
+        )
       end
 
       def parse_response(response)
