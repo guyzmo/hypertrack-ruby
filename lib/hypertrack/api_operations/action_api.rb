@@ -16,6 +16,11 @@ module HyperTrack
         path = "mileage/"
         self.get(path, params)
       end
+
+      def meter(params={})
+        path = "meter/"
+        self.get(path, params)
+      end
     end
   end
 end
