@@ -32,6 +32,11 @@ module HyperTrack
 
   class << self
     attr_accessor :secret_key
+    attr_writer :api_version
+
+    def api_version
+    	@api_version || "v1"
+    end
   end
 
 end

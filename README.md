@@ -18,6 +18,7 @@ Or install it yourself as: `gem install hypertrack`
 ```ruby
 require 'hypertrack'
 HyperTrack.secret_key = "<YOUR_SECRET_KEY>"
+HyperTrack.api_version = "v2" # default is v1
 ```
 
 ## HyperTrack - API and Resources

@@ -2,7 +2,6 @@ module HyperTrack
   class ApiClient
 
     BASE_URL = "https://api.hypertrack.com/api"
-    API_VERSION = "v1"
 
     VERB_MAP = {
       :get  => Net::HTTP::Get,
@@ -50,7 +49,7 @@ module HyperTrack
       end
 
       def get_uri(path)
-        url = "#{BASE_URL}/#{API_VERSION}/#{path}"
+        url = "#{BASE_URL}/#{HyperTrack.api_version}/#{path}"
         URI.parse(url)
       end
 
