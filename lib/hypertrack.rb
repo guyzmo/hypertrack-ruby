@@ -15,6 +15,7 @@ require_relative "hypertrack/api_operations/common/nearby"
 require_relative "hypertrack/api_operations/common/retrieve"
 require_relative "hypertrack/api_operations/common/list"
 require_relative "hypertrack/api_operations/common/update"
+require_relative "hypertrack/api_operations/common/retrieve_by_unique_id"
 require_relative "hypertrack/api_operations/user_api"
 require_relative "hypertrack/api_operations/action_api"
 

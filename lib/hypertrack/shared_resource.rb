@@ -4,6 +4,7 @@ module HyperTrack
     extend HyperTrack::ApiOperations::Common::Retrieve
     extend HyperTrack::ApiOperations::Common::List
     extend HyperTrack::ApiOperations::Common::Nearby
+    extend HyperTrack::ApiOperations::Common::RetrieveByUniqueId
     include HyperTrack::ApiOperations::Common::Patch
     include HyperTrack::ApiOperations::Common::Get
     include HyperTrack::ApiOperations::Common::Update

@@ -3,7 +3,7 @@ require './version'
 Gem::Specification.new do |spec|
   spec.name        = 'hypertrack'
   spec.version     = HyperTrack::VERSION
-  spec.date        = '2018-04-18'
+  spec.date        = '2018-08-16'
   spec.summary     = "Ruby bindings for the HyperTrack API!"
   spec.description = "Ruby wrapper around HyperTrack's API. Refer http://docs.hypertrack.com/ for more information."
   spec.authors     = ["Utsav Kesharwani", "Amit Rathi", "Nilesh Trivedi"]
