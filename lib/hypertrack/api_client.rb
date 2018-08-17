@@ -69,7 +69,7 @@ module HyperTrack
           Net::HTTP.start(
               api_uri.host,
               api_uri.port,
-              :read_timeout => ENV['NET_TIMEOUT'] || 5,
+              :read_timeout => ENV.fetch('NET_TIMEOUT', 5).to_i,
               :use_ssl => api_uri.scheme == 'https',
               :verify_mode => OpenSSL::SSL::VERIFY_PEER
             ) { |conn|
