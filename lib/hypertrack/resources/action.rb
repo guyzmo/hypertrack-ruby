@@ -7,7 +7,6 @@ module HyperTrack
 
     VALID_ATTRIBUTE_VALUES = {
       type: {
-        allowed: [:pickup, :delivery, :dropoff, :visit, :stoppver, :task],
         allow_nil: true
       },
       vehicle_type: {
