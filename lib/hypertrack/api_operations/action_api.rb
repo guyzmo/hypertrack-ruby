@@ -2,6 +2,10 @@ module HyperTrack
   module ApiOperations
     module ActionAPI
 
+      def update(params)
+        self.patch(params)
+      end
+
       def complete(params={})
         path = "complete/"
         self.update(path, params)
