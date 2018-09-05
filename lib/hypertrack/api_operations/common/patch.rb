@@ -3,8 +3,8 @@ module HyperTrack
     module Common
       module Patch
 
-        def patch(params={})
-          api_path = "#{self.class::API_BASE_PATH}#{self.id}/"
+        def patch(path, params={})
+          api_path = "#{self.class::API_BASE_PATH}#{self.id}/#{path||''}"
           result = HyperTrack::ApiClient.patch(api_path, params)
           update_attributes_in_object(result)
         end
