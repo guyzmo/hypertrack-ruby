@@ -8,6 +8,7 @@ module HyperTrack
     include HyperTrack::ApiOperations::Common::Patch
     include HyperTrack::ApiOperations::Common::Get
     include HyperTrack::ApiOperations::Common::Update
+    include HyperTrack::ApiOperations::Common::Post
 
     VALID_VEHICLE_TYPES = [:walking, :bicycle, :motorcycle, :car, :'3-wheeler', :van] #[:flight, :train, :ship]
 
