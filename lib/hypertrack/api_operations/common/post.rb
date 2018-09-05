@@ -1,7 +1,7 @@
 module HyperTrack
   module ApiOperations
     module Common
-      module Update
+      module Post
 
         def post(path, params, required_params=[])
           if HyperTrack::ParamsValidator.valid_args?(params, required_params, self.class::VALID_ATTRIBUTE_VALUES)
