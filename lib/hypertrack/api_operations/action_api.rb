@@ -8,7 +8,7 @@ module HyperTrack
 
       def complete(params={})
         path = "complete/"
-        self.update(path, params)
+        self.post(path, params)
       end
 
       def cancel(params={})
