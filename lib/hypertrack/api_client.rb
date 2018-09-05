@@ -13,13 +13,14 @@ module HyperTrack
 
     class << self
 
-      def create(api_path, data={})
+      def post(api_path, data={})
         api_uri = get_uri(api_path)
         request_object = create_request_object(api_uri, :post)
         request_object.body = data.to_json
         make_request(api_uri, request_object)
       end
-      alias_method :update, :create
+      alias update post
+      alias create post
 
       def patch(api_path, data={})
         api_uri = get_uri(api_path)
