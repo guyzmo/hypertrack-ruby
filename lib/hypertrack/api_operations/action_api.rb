@@ -13,7 +13,7 @@ module HyperTrack
 
       def cancel(params={})
         path = "cancel/"
-        self.update(path, params)
+        self.post(path, params)
       end
 
       def mileage(params={})
