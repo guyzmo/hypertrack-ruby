@@ -1,6 +1,5 @@
 module HyperTrack
   class Error < StandardError
-
     attr_reader :code
 
     def self.defined_codes
@@ -17,7 +16,7 @@ module HyperTrack
         500 => HyperTrack::InternalServerError,
         502 => HyperTrack::BadGateway,
         503 => HyperTrack::ServiceTemporarilyUnavailable,
-        504 => HyperTrack::GatewayTimeout
+        504 => HyperTrack::GatewayTimeout,
       }
     end
 
@@ -25,7 +24,6 @@ module HyperTrack
       @code = code
       super(message)
     end
-
   end
 
   # Raised when - Missing or invalid parameters in API call

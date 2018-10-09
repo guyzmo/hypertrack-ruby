@@ -10,7 +10,7 @@ module HyperTrack
     include HyperTrack::ApiOperations::Common::Update
     include HyperTrack::ApiOperations::Common::Post
 
-    VALID_VEHICLE_TYPES = [:walking, :bicycle, :motorcycle, :car, :'3-wheeler', :van] #[:flight, :train, :ship]
+    VALID_VEHICLE_TYPES = [:walking, :bicycle, :motorcycle, :car, :'3-wheeler', :van].freeze # [:flight, :train, :ship]
 
     attr_accessor :id
 
@@ -19,12 +19,12 @@ module HyperTrack
       @values = Util.symbolize_keys(opts)
     end
 
-    def [](k)
-      @values[k.to_sym]
+    def [](key)
+      @values[key.to_sym]
     end
 
-    def []=(k, v)
-      @values[k.to_sym] = v
+    def []=(key, val)
+      @values[key.to_sym] = val
     end
 
     def keys
@@ -45,15 +45,20 @@ module HyperTrack
       if name[-1] == "="
         name = name[0..-2]
 
-        if @values.has_key?(name.to_sym)
+        if @values.key?(name.to_sym)
           self[name.to_sym] = args[0]
           return
         end
 
-      elsif @values.has_key?(name.to_sym)
+      elsif @values.key?(name.to_sym)
         return @values[name.to_sym]
       end
 
+      super
+    end
+
+    def respond_to_missing?(name, include_private=false)
+      return true if @values.key?(name.to_sym)
       super
     end
 
@@ -63,6 +68,5 @@ module HyperTrack
       # To-Do: Umm.. Find some better approach
       Object.const_get(self.name)
     end
-
   end
 end

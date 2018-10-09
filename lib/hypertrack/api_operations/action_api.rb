@@ -1,29 +1,28 @@
 module HyperTrack
   module ApiOperations
     module ActionAPI
-
       def update(params)
-        self.patch(params)
+        patch(params)
       end
 
       def complete(params={})
-        path = "complete/"
-        self.post(path, params)
+        path = 'complete/'
+        post(path, params)
       end
 
       def cancel(params={})
-        path = "cancel/"
-        self.post(path, params)
+        path = 'cancel/'
+        post(path, params)
       end
 
       def mileage(params={})
-        path = "mileage/"
-        self.get(path, params)
+        path = 'mileage/'
+        get(path, params)
       end
 
       def meter(params={})
-        path = "meter/"
-        self.get(path, params)
+        path = 'meter/'
+        get(path, params)
       end
     end
   end

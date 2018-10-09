@@ -2,7 +2,6 @@ module HyperTrack
   module ApiOperations
     module Common
       module List
-
         def list(filter_params={})
           api_result = HyperTrack::ApiClient.fetch(get_class_name::API_BASE_PATH, filter_params)
 
@@ -12,7 +11,6 @@ module HyperTrack
 
           api_result['results']
         end
-
       end
     end
   end

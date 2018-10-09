@@ -2,13 +2,11 @@ module HyperTrack
   module ApiOperations
     module Common
       module Update
-
         def update(path, params, required_params=[])
-          if HyperTrack::ParamsValidator.valid_args?(params, required_params, self.class::VALID_ATTRIBUTE_VALUES)
-            api_path = "#{self.class::API_BASE_PATH}#{self.id}/" + path
-            result = HyperTrack::ApiClient.update(api_path, params)
-            update_attributes_in_object(result)
-          end
+          return unless HyperTrack::ParamsValidator.valid_args?(params, required_params, self.class::VALID_ATTRIBUTE_VALUES)
+          api_path = "#{self.class::API_BASE_PATH}#{self.id}/" + path
+          result = HyperTrack::ApiClient.update(api_path, params)
+          update_attributes_in_object(result)
         end
 
         private
@@ -26,7 +24,6 @@ module HyperTrack
 
           self
         end
-
       end
     end
   end
